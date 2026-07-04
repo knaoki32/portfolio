@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>なお / knao ｜ AI画像・動画クリエイター Portfolio</title>
+<meta name="description" content="キャラクターの一貫性を保ったAIイラスト・漫画制作、SNS縦型AI動画の制作。登録者12.6万人YouTubeチャンネルの画像制作実績。Midjourney / Nano Banana Pro">
+<style>
+  :root{
+    --bg:#0b0d12;
+    --bg2:#12151d;
+    --card:#171b26;
+    --line:#262c3b;
+    --text:#e8eaf0;
+    --sub:#9aa3b5;
+    --accent:#e8556d;
+    --accent2:#f0a35e;
+    --grad:linear-gradient(135deg,#e8556d,#f0a35e);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",Meiryo,sans-serif;line-height:1.8}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+  h2{font-size:1.7rem;letter-spacing:.06em;margin-bottom:8px}
+  h2 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:.8rem;display:block;letter-spacing:.25em;margin-bottom:10px;font-weight:700}
+  .lead{color:var(--sub);margin-bottom:48px;max-width:640px}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,13,18,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:700;letter-spacing:.08em}
+  .logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav ul{display:flex;gap:26px;list-style:none;font-size:.85rem}
+  nav ul a{text-decoration:none;color:var(--sub);transition:color .2s}
+  nav ul a:hover{color:var(--text)}
+  .cta-mini{background:var(--grad);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;padding:8px 18px;border-radius:99px}
+  @media(max-width:760px){nav ul{display:none}}
+
+  /* hero */
+  header{padding:170px 0 100px;background:
+    radial-gradient(900px 420px at 80% -10%,rgba(232,85,109,.16),transparent),
+    radial-gradient(700px 380px at 10% 110%,rgba(240,163,94,.10),transparent),var(--bg)}
+  .badge{display:inline-block;border:1px solid var(--line);color:var(--sub);font-size:.78rem;padding:5px 14px;border-radius:99px;margin-bottom:22px;letter-spacing:.1em}
+  h1{font-size:clamp(1.7rem,4.6vw,2.9rem);line-height:1.4;letter-spacing:.04em;margin-bottom:18px}
+  h1 b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{color:var(--sub);max-width:620px;margin-bottom:36px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 18px}
+  .stat .num{font-size:1.45rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lab{font-size:.78rem;color:var(--sub);margin-top:4px}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* strengths */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 26px}
+  .card .no{font-size:.75rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:12px}
+  .card h3{font-size:1.08rem;margin-bottom:12px}
+  .card p{font-size:.88rem;color:var(--sub)}
+  @media(max-width:760px){.cards{grid-template-columns:1fr}}
+
+  /* consistency showcase */
+  .consist{background:var(--bg2)}
+  .consist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .consist-grid figure{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .consist-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;transition:transform .3s;cursor:zoom-in}
+  .consist-grid img:hover{transform:scale(1.03)}
+  .consist-grid figcaption{padding:14px 16px;font-size:.82rem;color:var(--sub)}
+  .consist-grid figcaption b{color:var(--text);display:block;margin-bottom:2px;font-size:.9rem}
+  @media(max-width:760px){.consist-grid{grid-template-columns:1fr}}
+
+  /* gallery */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .gal figure{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .gal img{width:100%;aspect-ratio:2/3;object-fit:cover;object-position:top;transition:transform .3s;cursor:zoom-in}
+  .gal img:hover{transform:scale(1.03)}
+  .gal figcaption{padding:14px 16px;font-size:.82rem;color:var(--sub)}
+  .gal figcaption b{color:var(--text);display:block;margin-bottom:2px;font-size:.9rem}
+  @media(max-width:760px){.gal{grid-template-columns:1fr}}
+
+  /* video */
+  .video-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:40px;display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+  .video-box .txt{flex:1;min-width:260px}
+  .video-box .txt p{color:var(--sub);font-size:.92rem;margin-bottom:20px}
+  .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
+  .videos figure{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .videos video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#000}
+  .videos figcaption{padding:14px 16px;font-size:.82rem;color:var(--sub)}
+  .videos figcaption b{color:var(--text);display:block;margin-bottom:2px;font-size:.9rem}
+  @media(max-width:760px){.videos{grid-template-columns:1fr}}
+
+  /* plans */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 26px;display:flex;flex-direction:column}
+  .plan.hot{border-color:rgba(232,85,109,.55)}
+  .plan .tag{font-size:.72rem;letter-spacing:.15em;color:var(--accent);font-weight:700;margin-bottom:10px}
+  .plan h3{font-size:1.05rem;margin-bottom:6px}
+  .plan .price{font-size:1.5rem;font-weight:700;margin:10px 0 16px}
+  .plan .price small{font-size:.78rem;color:var(--sub);font-weight:400}
+  .plan ul{list-style:none;font-size:.85rem;color:var(--sub);flex:1}
+  .plan li{padding:7px 0;border-top:1px dashed var(--line)}
+  .plan li::before{content:"✓ ";color:var(--accent)}
+  .note-s{font-size:.78rem;color:var(--sub);margin-top:22px}
+  @media(max-width:760px){.plans{grid-template-columns:1fr}}
+
+  /* flow */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+  .step::before{counter-increment:step;content:"0" counter(step);font-weight:700;font-size:.85rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.15em;display:block;margin-bottom:8px}
+  .step h3{font-size:.95rem;margin-bottom:6px}
+  .step p{font-size:.8rem;color:var(--sub)}
+  @media(max-width:760px){.flow{grid-template-columns:repeat(2,1fr)}}
+
+  /* trust */
+  .trust{background:var(--bg2)}
+  .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .trust-item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .trust-item h3{font-size:1rem;margin-bottom:8px}
+  .trust-item p{font-size:.86rem;color:var(--sub)}
+  @media(max-width:760px){.trust-grid{grid-template-columns:1fr}}
+
+  /* profile */
+  .profile{display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap}
+  .profile .txt{flex:1;min-width:280px}
+  .profile .txt p{color:var(--sub);font-size:.94rem;margin-bottom:16px}
+  .profile .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .profile .links a{border:1px solid var(--line);border-radius:99px;padding:8px 20px;font-size:.83rem;text-decoration:none;color:var(--sub);transition:.2s}
+  .profile .links a:hover{color:var(--text);border-color:var(--accent)}
+  dl.spec{margin-top:26px;font-size:.86rem}
+  dl.spec div{display:flex;border-top:1px dashed var(--line);padding:10px 0}
+  dl.spec dt{width:130px;color:var(--sub);flex-shrink:0}
+
+  /* contact */
+  .contact{text-align:center;background:
+    radial-gradient(700px 320px at 50% 120%,rgba(232,85,109,.18),transparent),var(--bg2)}
+  .contact p{color:var(--sub);max-width:560px;margin:0 auto 34px}
+  .btn{display:inline-block;background:var(--grad);color:#fff;text-decoration:none;font-weight:700;padding:16px 46px;border-radius:99px;font-size:1rem;letter-spacing:.05em;box-shadow:0 8px 30px rgba(232,85,109,.35)}
+  .contact .alt{margin-top:20px;font-size:.85rem}
+  .contact .alt a{color:var(--accent)}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-size:.78rem;color:var(--sub)}
+
+  /* lightbox */
+  #lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:30px}
+  #lb.on{display:flex}
+  #lb img{max-width:100%;max-height:100%;object-fit:contain}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">なお <em>/ knao</em></div>
+    <ul>
+      <li><a href="#strength">強み</a></li>
+      <li><a href="#consistency">キャラ一貫性</a></li>
+      <li><a href="#works">作品</a></li>
+      <li><a href="#plans">料金</a></li>
+      <li><a href="#profile">プロフィール</a></li>
+    </ul>
+    <a class="cta-mini" href="#contact">相談する</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <span class="badge">AI IMAGE &amp; VIDEO CREATOR</span>
+    <h1>キャラクターがブレない、<br><b>「使える」AI画像・動画</b>を納品します。</h1>
+    <p class="hero-sub">登録者12.6万人のYouTubeチャンネルで画像制作を担当。キャラクターの一貫性を保ったイラスト・漫画制作と、スマホ視聴を前提に設計したSNS縦型コンテンツが専門です。</p>
+    <a class="btn" href="#contact">制作のご相談はこちら</a>
+    <div class="stats">
+      <div class="stat"><div class="num">12.6万人</div><div class="lab">画像制作を担当するYouTubeチャンネル登録者数</div></div>
+      <div class="stat"><div class="num">109P</div><div class="lab">キャラ一貫性を保って制作したフルカラーAI漫画</div></div>
+      <div class="stat"><div class="num">1位</div><div class="lab">AIイラスト投稿サイト「ちちぷい」デイリーランキング</div></div>
+      <div class="stat"><div class="num">40枚/日</div><div class="lab">最大納品ペース（週41時間以上稼働可能）</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="strength">
+  <div class="wrap">
+    <h2><span>STRENGTH</span>選ばれる3つの理由</h2>
+    <p class="lead">「AIっぽい一発出し」ではなく、企画・媒体・ターゲットに合わせて制御された画づくりを行います。</p>
+    <div class="cards">
+      <div class="card">
+        <div class="no">01</div>
+        <h3>キャラクターの一貫性制御</h3>
+        <p>リファレンス設計とプロンプト管理により、同一キャラクターを衣装・シーン・アングルを変えて安定して描画。100ページ超のストーリー漫画でも顔・髪型・体型が破綻しません。</p>
+      </div>
+      <div class="card">
+        <div class="no">02</div>
+        <h3>縦型9:16前提の設計力</h3>
+        <p>YouTubeショート・TikTok・リールでの表示を前提に、テロップ位置・セーフエリア・スクロールを止める構図まで考慮して生成。「作ってから困る」がありません。</p>
+      </div>
+      <div class="card">
+        <div class="no">03</div>
+        <h3>テイストの使い分け</h3>
+        <p>フォトリアルな都市伝説・ホラー表現から、アニメ調キャラクター、日本語テキスト入りの図解・インフォグラフィックまで。1つの動画内でのトーン切り替えにも対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="consistency" class="consist">
+  <div class="wrap">
+    <h2><span>CHARACTER CONSISTENCY</span>同一キャラクターを、どんな場面でも</h2>
+    <p class="lead">オリジナルキャラクター「はるか」。1枚のリファレンスから、衣装・季節・シチュエーションを変えても同一人物として成立させます。ゲームのスチル差分やVTuber・企業キャラクターの展開に応用可能です。</p>
+    <div class="consist-grid">
+      <figure>
+        <img src="assets/haruka_reference.jpg" alt="キャラクターリファレンス（制服）" loading="lazy">
+        <figcaption><b>① キャラクターリファレンス</b>設計の起点となる基準ビジュアル</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/manga_cover.jpg" alt="表紙キービジュアル" loading="lazy">
+        <figcaption><b>② キービジュアル（表紙）</b>私服＋複数シーン合成のポスター構成</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/manga_hakama.jpg" alt="卒業式・袴姿" loading="lazy">
+        <figcaption><b>③ 衣装・シーン変更</b>袴姿でも同一人物として成立</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <h2><span>WORKS</span>制作事例</h2>
+    <p class="lead">個人制作のフルカラーAI漫画『はるか、新卒でもリゾートバイトやるってよ』（note公開・全109ページ）より抜粋。クリックで拡大できます。</p>
+    <div class="gal">
+      <figure>
+        <img src="assets/manga_cinematic.jpg" alt="シネマティックなコマ割り" loading="lazy">
+        <figcaption><b>シネマティックな演出</b>寄り・引き・鏡面反射を使ったコマ割り構成</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/manga_angles.jpg" alt="多アングルの一貫性" loading="lazy">
+        <figcaption><b>多アングルでの一貫性</b>後ろ姿・正面・横顔でも同一キャラクター</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/manga_multi.jpg" alt="複数キャラクターの描き分け" loading="lazy">
+        <figcaption><b>複数キャラクターの描き分け</b>会話劇でも各キャラの個性を維持</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/manga_infographic.jpg" alt="図解・インフォグラフィック" loading="lazy">
+        <figcaption><b>図解・インフォグラフィック</b>日本語テキスト入り。解説動画の演出に</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <h2><span>VERTICAL VIDEO</span>SNS縦型AI動画</h2>
+    <p class="lead">同一キャラクターによるAI動画生成の作例（音声なし・タップで再生）。商品リポート・食レポなど、SNS販促でそのまま使える演出を想定しています。</p>
+    <div class="videos">
+      <figure>
+        <video src="assets/video_report.mp4" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>リポーター風・商品紹介</b>カメラ目線でのリポート演技。企業の商品・サービス紹介動画に</figcaption>
+      </figure>
+      <figure>
+        <video src="assets/video_food.mp4" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>食レポ・表情演技</b>食べる・驚く・笑うの自然な演技。グルメ・物販系ショートに</figcaption>
+      </figure>
+      <figure>
+        <video src="assets/video_fullbody.mp4" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>全身・動きのあるカット</b>キャラの魅力を伝えるイメージカット。VTuber・キャラPRに</figcaption>
+      </figure>
+    </div>
+    <div class="video-box">
+      <div class="txt">
+        <h3 style="margin-bottom:14px">「スクロールを止める」縦型動画を、画像設計から</h3>
+        <p>登録者12.6万人の都市伝説系YouTubeチャンネル「世界の不思議【セカフシ】」にて、ショート動画用のAI画像制作を担当。テロップ位置を考慮した構図設計、フォトリアルなホラー表現、図解パートの切り替えなど、「再生される縦型動画」のための画づくりを実務で行っています。最新の作例はXで毎日公開中です。</p>
+        <a class="cta-mini" href="https://x.com/knaoki23" target="_blank" rel="noopener">X で最新作例を見る →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <h2><span>PRICING</span>料金プラン</h2>
+    <p class="lead">企業様向けの目安料金です。内容・点数に応じてお見積りしますので、まずはご相談ください。</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="tag">IMAGE PACK</div>
+        <h3>動画用AI画像セット</h3>
+        <div class="price">3万円〜 <small>/ 20〜40枚</small></div>
+        <ul>
+          <li>YouTube・ショート動画用の画像一括制作</li>
+          <li>フォトリアル／アニメ調／図解の使い分け</li>
+          <li>縦型9:16・テロップ位置考慮</li>
+          <li>台本に沿ったシーン割り対応</li>
+        </ul>
+      </div>
+      <div class="plan hot">
+        <div class="tag">CHARACTER</div>
+        <h3>キャラクター設計＋一貫性素材パック</h3>
+        <div class="price">5万円〜 <small>/ 1キャラ</small></div>
+        <ul>
+          <li>キャラクターデザイン＋リファレンス整備</li>
+          <li>表情・衣装・ポーズ差分（10〜30点）</li>
+          <li>SNS・LP・ゲーム素材への展開</li>
+          <li>継続利用できるプロンプト設計書つき</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <div class="tag">VIDEO / MANGA</div>
+        <h3>縦型AI動画・広告漫画制作</h3>
+        <div class="price">10万円〜 <small>/ 本</small></div>
+        <ul>
+          <li>SNS縦型AI動画（構成〜画像・動画生成）</li>
+          <li>ストーリー漫画・広告漫画（コマ割り対応）</li>
+          <li>キャラ一貫性を保った長編展開</li>
+          <li>連載・シリーズ化のご相談も可能</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note-s">※ 修正2回まで無料。お急ぎの案件（最短翌日納品）もご相談ください。</p>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <h2><span>FLOW</span>ご依頼の流れ</h2>
+    <p class="lead">初めてAI制作を外注される企業様でも進めやすいよう、認識合わせを重視しています。</p>
+    <div class="flow">
+      <div class="step"><h3>ヒアリング</h3><p>用途・ターゲット・参考イメージを確認。要件が固まっていなくてもOKです。</p></div>
+      <div class="step"><h3>テスト生成</h3><p>方向性確認用のサンプルを先に提示。トーンのズレを初期段階で解消します。</p></div>
+      <div class="step"><h3>本制作</h3><p>フィードバックを反映しながら制作。最大40枚/日のペースで納品可能です。</p></div>
+      <div class="step"><h3>納品・調整</h3><p>形式・サイズはご指定に対応。納品後の微調整もお受けします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <h2><span>FOR BUSINESS</span>企業様に安心いただくために</h2>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <h3>使用ツールの明示</h3>
+        <p>Midjourney（有償プラン）・Whisk・Nano Banana Pro など、商用利用可能なプランのツールを使用し、案件ごとに使用ツールを明示します。</p>
+      </div>
+      <div class="trust-item">
+        <h3>権利・レギュレーションへの配慮</h3>
+        <p>既存キャラクター・実在人物に類似する生成は行いません。貴社のガイドラインやAI利用ポリシーに沿った運用が可能です。</p>
+      </div>
+      <div class="trust-item">
+        <h3>ビジネスコミュニケーション</h3>
+        <p>クラウドワークス登録2018年〜。Web会議対応可。平日・週末ともに連絡がつきやすく、進捗共有をこまめに行います。</p>
+      </div>
+      <div class="trust-item">
+        <h3>秘密保持</h3>
+        <p>未公開の企画・台本・キャラクター情報の取り扱いに配慮し、NDA締結にも対応します。実績公開の可否も事前に確認します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="profile">
+  <div class="wrap">
+    <h2><span>PROFILE</span>プロフィール</h2>
+    <div class="profile">
+      <div class="txt">
+        <h3 style="font-size:1.2rem;margin-bottom:14px">なお / knao<span style="font-size:.8rem;color:var(--sub);margin-left:12px">AI画像・動画クリエイター（兵庫県）</span></h3>
+        <p>登録者12.6万人の都市伝説系YouTubeチャンネル「世界の不思議【セカフシ】」にて、ショート動画用AI画像の制作を担当。フォトリアルなホラー表現からアニメ調キャラクター、日本語図解まで、動画の企画とターゲット層に合わせたテイストの使い分けを強みとしています。</p>
+        <p>個人制作では、オリジナルキャラクターによる全109ページのフルカラーAI漫画をnoteで公開・販売。AIイラスト投稿サイト「ちちぷい」ではデイリーランキング1位を獲得。DLsiteでもサークルとして作品を販売しています。noteではAI画像生成の研究記事を110本以上発信しており、「再現できる生成技術」の言語化を続けています。</p>
+        <dl class="spec">
+          <div><dt>使用ツール</dt><dd>Midjourney / Whisk / Nano Banana Pro / Sora / Veo ほか</dd></div>
+          <div><dt>対応領域</dt><dd>キャラクターデザイン・漫画・図解・縦型動画用素材・AI動画生成</dd></div>
+          <div><dt>稼働</dt><dd>週41時間以上対応可 / 最大40枚/日 / Web会議可</dd></div>
+          <div><dt>資格</dt><dd>MOS（Word / Excel Expert・PowerPoint）ほか</dd></div>
+        </dl>
+        <div class="links">
+          <a href="https://x.com/knaoki23" target="_blank" rel="noopener">X（作品を毎日投稿）</a>
+          <a href="https://note.com/knaok" target="_blank" rel="noopener">note（研究記事110本+）</a>
+          <a href="https://crowdworks.jp/public/employees/1920807" target="_blank" rel="noopener">クラウドワークス</a>
+          <a href="https://www.youtube.com/@ToshiDensetsu_Story/shorts" target="_blank" rel="noopener">画像担当チャンネル</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2><span>CONTACT</span>お問い合わせ</h2>
+    <p>「こんな表現はできる？」という段階のご相談も歓迎です。用途とイメージをお聞かせいただければ、テストサンプルの生成からご提案します。</p>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd3JzhylqDMy-xuoaWoAag5SvcHwfgzZWwx4URyABMcfQJQdw/viewform" target="_blank" rel="noopener">相談フォームを開く</a>
+    <p class="alt">X の DM（<a href="https://x.com/knaoki23" target="_blank" rel="noopener">@knaoki23</a>）や<a href="https://crowdworks.jp/public/employees/1920807" target="_blank" rel="noopener">クラウドワークス</a>経由でも受け付けています。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© なお / knao — 掲載作品はすべて本人がAIツールを用いて制作したものです。無断転載はご遠慮ください。</div>
+</footer>
+
+<div id="lb"><img src="" alt=""></div>
+<script>
+  const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
+  document.querySelectorAll('.gal img,.consist-grid img').forEach(img=>{
+    img.addEventListener('click',()=>{lbImg.src=img.src;lb.classList.add('on');});
+  });
+  lb.addEventListener('click',()=>lb.classList.remove('on'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
+</script>
+</body>
+</html>
